@@ -19,7 +19,7 @@ msgstr ""
 #This is a comment
 
 msgctxt "#32000"
-msgid "Example"
+msgid "Debug"
 msgstr ""
 
 msgctxt "#32001"
