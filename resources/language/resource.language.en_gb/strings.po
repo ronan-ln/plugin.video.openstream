@@ -25,7 +25,3 @@ msgstr ""
 msgctxt "#32001"
 msgid "Stream URL"
 msgstr ""
-
-msgctxt "#32002"
-msgid Play other"
-msgstr ""

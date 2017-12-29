@@ -18,13 +18,6 @@ logger = logging.getLogger(ADDON.getAddonInfo('id'))
 kodilogging.config()
 plugin = routing.Plugin()
 
-
-@plugin.route('/')
-def index():
-    addDirectoryItem(plugin.handle, plugin.url_for(prompt_and_play), ListItem("Play stream"), True)
-    endOfDirectory(plugin.handle)
-
-
 def make_item(stream_location, play=False):
     item = xbmcgui.ListItem(label=stream_location, path=stream_location)
     item.setInfo(type='audio', infoLabels={"Title": stream_location})
@@ -36,14 +29,13 @@ def make_item(stream_location, play=False):
 
 @plugin.route('/prompt_and_play')
 @plugin.route('/')
-def index()
-    stream_location = get_input(heading=get_string("Stream URL"))
+def index():
+    stream_location = get_input(heading=kodiutils.get_string(32001))
 
     if stream_location:
         item = make_item(stream_location, play=True)
 
         addDirectoryItem(plugin.handle, stream_location, item, isFolder=False)
-        ddDirectoryItem(plugin.handle, plugin.url_for(), ListItem(get_string("Play other"), False)
         endOfDirectory(plugin.handle)
 
     return False
